@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <!-- Mencegah zoom otomatis saat tombol dipencet cepat di HP -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Shayla's Little Adventure</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div id="game">
+
+    <!-- TITLE SCREEN -->
+    <div id="titleScreen" class="screen">
+      <h1>Shayla's Little Adventure</h1>
+      <p>Ayo mulai petualangan keren ini baby</p>
+      <button id="startButton">START</button>
+    </div>
+
+    <!-- GAME CANVAS -->
+    <canvas id="gameCanvas"></canvas>
+
+    <!-- DIALOGUE -->
+    <div id="dialogueBox" class="hidden">
+      <div id="speaker">Shayla</div>
+      <div id="dialogueText"></div>
+      <button id="dialogueNext">▶</button>
+    </div>
+
+    <!-- TOUCH CONTROLS UNTUK HP -->
+    <div id="touchControls">
+      <div class="dpad">
+        <button id="btnLeft" class="touch-btn">◀</button>
+        <button id="btnRight" class="touch-btn">▶</button>
+      </div>
+      <div class="actions">
+        <button id="btnAttack" class="touch-btn action-btn">⚔️</button>
+        <button id="btnJump" class="touch-btn action-btn">▲</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="game.js"></script>
+
+</body>
+</html>
