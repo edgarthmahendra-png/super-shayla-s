@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shayla's Little Adventure</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div id="game">
+
+    <!-- TITLE SCREEN -->
+    <div id="titleScreen" class="screen">
+      <h1>Shayla's Little Adventure</h1>
+      <p>Hati hati cantik, sampai ketemu di Finish</p>
+      <button id="startButton">START</button>
+    </div>
+
+    <!-- GAME CANVAS -->
+    <canvas id="gameCanvas"></canvas>
+
+    <!-- DIALOGUE -->
+    <div id="dialogueBox" class="hidden">
+      <div id="speaker">Shayla</div>
+      <div id="dialogueText"></div>
+      <button id="dialogueNext">▶</button>
+    </div>
+
+  </div>
+
+  <script src="game.js"></script>
+  
+
+</body>
+</html>
+
