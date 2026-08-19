@@ -686,6 +686,74 @@ window.addEventListener("keyup", (event) => {
   keys[event.key.toLowerCase()] = false;
 });
 
+// ============================================================
+// CONTROLS & EVENT LISTENERS
+// ============================================================
+
+const keys = {};
+
+window.addEventListener("keydown", (event) => {
+  keys[event.key.toLowerCase()] = true;
+  if (event.key.toLowerCase() === "j") {
+    if (cutscenePhase === "none") {
+      shaylaAttacking = true;
+      shaylaAttackTimer = 20;
+      shaylaAttackFrame = 0;
+      shaylaAttackFrameTimer = 0;
+    }
+  }
+  if (event.key === " ") event.preventDefault();
+});
+
+window.addEventListener("keyup", (event) => {
+  keys[event.key.toLowerCase()] = false;
+});
+
+// ============================================================
+// PASTE KODE TOUCH CONTROLS DI SINI (DI BAWAH EVENT KEYBOARD)
+// ============================================================
+
+const btnLeft = document.getElementById("btnLeft");
+const btnRight = document.getElementById("btnRight");
+const btnJump = document.getElementById("btnJump");
+const btnAttack = document.getElementById("btnAttack");
+
+function setupTouchButton(element, keyName) {
+  if (!element) return;
+
+  element.addEventListener("touchstart", (e) => {
+    e.preventDefault();
+    keys[keyName] = true;
+
+    if (keyName === "j" && cutscenePhase === "none") {
+      shaylaAttacking = true;
+      shaylaAttackTimer = 20;
+      shaylaAttackFrame = 0;
+      shaylaAttackFrameTimer = 0;
+    }
+  }, { passive: false });
+
+  element.addEventListener("touchend", (e) => {
+    e.preventDefault();
+    keys[keyName] = false;
+  }, { passive: false });
+}
+
+setupTouchButton(btnLeft, "arrowleft");
+setupTouchButton(btnRight, "arrowright");
+setupTouchButton(btnJump, " ");
+setupTouchButton(btnAttack, "j");
+
+// ============================================================
+// KODE DI BAWAHNYA TETAP SAMA (startButton.addEventListener ...)
+// ============================================================
+
+startButton.addEventListener("click", () => {
+  titleScreen.style.display = "none";
+  canvas.style.display = "block";
+  startDialogue("intro");
+});
+
 startButton.addEventListener("click", () => {
   titleScreen.style.display = "none";
   canvas.style.display = "block";
