@@ -125,3 +125,54 @@ body {
   display: none !important;
 }
 
+#touchControls {
+  display: none; /* Otomatis disembunyikan di layar PC */
+  position: fixed;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 99;
+  pointer-events: none; /* Agar tidak menghalangi klik luar */
+}
+
+/* Munculkan khusus pada perangkat HP/Tablet */
+@media (max-width: 1024px), (pointer: coarse) {
+  #touchControls {
+    display: flex;
+  }
+}
+
+.dpad, .actions {
+  display: flex;
+  gap: 12px;
+  pointer-events: auto;
+}
+
+.touch-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(255, 105, 180, 0.5); /* Pink transparan */
+  border: 2px solid #ffffff;
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: bold;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.touch-btn:active {
+  background: rgba(255, 20, 147, 0.8);
+  transform: scale(0.92);
+}
+
+.action-btn {
+  background: rgba(255, 64, 129, 0.6);
+}
